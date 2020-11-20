@@ -18,7 +18,7 @@
       
     <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-            <a class="navbar-brand d-none d-sm-block" href="{{ url() }}">BOI Nerve</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
+            <a class="navbar-brand d-none d-sm-block" href="#">BOI Nerve</a><button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
             <ul class="navbar-nav align-items-center ml-auto">               
                 <li class="nav-item dropdown no-caret mr-3 dropdown-user">
                     <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"/></a>
@@ -211,16 +211,10 @@
                 </footer>
             </div>
         </div>
-        
-
-        <script>
-            sessionStorage.setItem("key", "{{ csrf_token() }}");
-            console.log(sessionStorage.getItem("key"));
-        </script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script>
-            
+            sessionStorage.setItem("key", "{{ csrf_token() }}");
             let token = sessionStorage.getItem("key");
             $('#sel1').change(function() {
                 console.log('good');
@@ -244,7 +238,6 @@
                     }
                 });
             });
-
         </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
