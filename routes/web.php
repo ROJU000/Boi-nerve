@@ -13,11 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('Dashboard');
+Route::get('/', 'App\Http\Controllers\DashboardController@index')->name('Dashboard');
 Route::post('/switch', 'App\Http\Controllers\DashboardController@switchdashboards');//->name('switch-Dashboard');
 
 

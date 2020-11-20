@@ -50,27 +50,28 @@
 
   // function switch_dashboard() {
   // switch form on dashboard
-  $('#sel1').change(function() {
-    $.ajax({
-      url: "http://127.0.0.1:8001/switch",
-      method: "post",
-      data: {'data': this.value, "_token": token},
-      beforeSend: function(){
+  // $('#sel1').change(function() {
+  //   $.ajax({
+  //     // url: "http://127.0.0.1:8001/switch",
+  //     url: "/switch",
+  //     method: "post",
+  //     data: {'data': this.value, "_token": token},
+  //     beforeSend: function(){
 
-        $('#main').fadeOut('slow');
-        // Show image container
-        $("#loader").show();
-      },
-      success:function(data){
-        $('#main').html(data).fadeIn('slow');
-      },
-      complete:function(){
-          // Hide image container
-          $("#loader").hide();
-          // switch_dashboard();
-        }
-    });
-  });
+  //       $('#main').fadeOut('slow');
+  //       // Show image container
+  //       $("#loader").show();
+  //     },
+  //     success:function(data){
+  //       $('#main').html(data).fadeIn('slow');
+  //     },
+  //     complete:function(){
+  //         // Hide image container
+  //         $("#loader").hide();
+  //         // switch_dashboard();
+  //       }
+  //   });
+  // });
 
 
 

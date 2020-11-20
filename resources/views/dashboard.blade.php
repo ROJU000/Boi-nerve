@@ -13,6 +13,7 @@
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+        
     </head>
       
     <body class="nav-fixed">
@@ -210,13 +211,41 @@
                 </footer>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        
 
         <script>
             sessionStorage.setItem("key", "{{ csrf_token() }}");
             console.log(sessionStorage.getItem("key"));
         </script>
 
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script>
+            
+            let token = sessionStorage.getItem("key");
+            $('#sel1').change(function() {
+                console.log('good');
+                $.ajax({
+                // url: "http://127.0.0.1:8001/switch",
+                url: "/switch",
+                method: "post",
+                data: {'data': this.value, "_token": token},
+                beforeSend: function(){
+                    $('#main').fadeOut('slow');
+                    // Show image container
+                    $("#loader").show();
+                },
+                success:function(data){
+                    $('#main').html(data).fadeIn('slow');
+                },
+                complete:function(){
+                    // Hide image container
+                    $("#loader").hide();
+                    // switch_dashboard();
+                    }
+                });
+            });
+
+        </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
